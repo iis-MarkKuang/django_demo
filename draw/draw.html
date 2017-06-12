@@ -1,0 +1,102 @@
+<head></head>
+<body>
+<div id="canvas" align="center"></div>
+</body>
+<script type="text/JavaScript" src="jsDraw2D.js"></script>
+<script type="text/JavaScript">
+
+    //Create jsGraphics object
+    // var gr = new jsGraphics(document.getElementById("canvas"));
+
+    // //Create jsColor object
+    // var col = new jsColor("red");
+
+    // //Create jsPen object
+    // var pen = new jsPen(col,1);
+
+    // //Draw a Line between 2 points
+    // var pt1 = new jsPoint(20,30);
+    // var pt2 = new jsPoint(120,230);
+    // gr.drawLine(pen,pt1,pt2);
+
+    // //Draw filled circle with pt1 as center point and radius 30. 
+    // gr.fillCircle(col,pt1,30);
+
+    // //You can also code with inline object instantiation like below
+    // gr.drawLine(pen,new jsPoint(40,10),new jsPoint(70,150)); 
+    
+    var gr = new jsGraphics(document.getElementById("canvas"));
+    var col = new jsColor("blue");
+    var json_str = '[{"result": [{"landmark": {"mouth_upper_lip_left_contour2": {"y": 35.201667, "x": 48.884859}, "contour_chin": {"y": 38.005833, "x": 50.426888}, "mouth_lower_lip_right_contour3": {"y": 36.310833, "x": 51.083566}, "contour_right9": {"y": 37.781333, "x": 51.754601}, "mouth_upper_lip_left_contour1": {"y": 35.089333, "x": 49.756893}, "right_eyebrow_lower_middle": {"y": 30.966167, "x": 53.038827}, "left_eyebrow_lower_middle": {"y": 30.810333, "x": 47.894016}, "mouth_upper_lip_left_contour3": {"y": 35.331667, "x": 49.426889}, "left_eyebrow_lower_left_quarter": {"y": 30.801167, "x": 47.159935}, "right_eyebrow_lower_left_quarter": {"y": 31.037, "x": 52.458303}, "right_eyebrow_lower_right_quarter": {"y": 31.005833, "x": 53.910652}, "nose_contour_left1": {"y": 32.036167, "x": 49.812448}, "left_eyebrow_upper_left_quarter": {"y": 30.559667, "x": 47.005753}, "left_eye_bottom": {"y": 32.169333, "x": 48.125393}, "mouth_lower_lip_bottom": {"y": 36.44, "x": 50.25169}, "contour_right7": {"y": 37.054667, "x": 53.441448}, "left_eyebrow_left_corner": {"y": 31.125167, "x": 46.502216}, "contour_right6": {"y": 36.452667, "x": 54.062338}, "right_eye_lower_right_quarter": {"y": 32.037667, "x": 53.220891}, "right_eye_bottom": {"y": 32.153167, "x": 52.633917}, "contour_left7": {"y": 36.963833, "x": 47.371129}, "contour_left6": {"y": 36.197833, "x": 46.712578}, "contour_left5": {"y": 35.4955, "x": 46.172004}, "contour_left4": {"y": 34.637333, "x": 46.0224}, "contour_left3": {"y": 33.773833, "x": 45.997431}, "contour_left2": {"y": 32.925167, "x": 45.877789}, "contour_left1": {"y": 32.040167, "x": 45.678872}, "left_eye_lower_left_quarter": {"y": 32.1485, "x": 47.570462}, "contour_right1": {"y": 31.921667, "x": 55.44519}, "contour_right3": {"y": 33.875, "x": 55.09646}, "contour_right2": {"y": 32.9345, "x": 55.328461}, "contour_right5": {"y": 35.6465, "x": 54.509278}, "contour_right4": {"y": 34.7675, "x": 54.920846}, "contour_left9": {"y": 37.801333, "x": 49.348862}, "contour_left8": {"y": 37.355167, "x": 48.24774}, "nose_right": {"y": 34.062167, "x": 51.89505}, "right_eye_upper_right_quarter": {"y": 31.822167, "x": 53.124137}, "nose_contour_right3": {"y": 34.221167, "x": 51.132879}, "nose_contour_lower_middle": {"y": 34.335333, "x": 50.279156}, "right_eye_top": {"y": 31.708667, "x": 52.656389}, "right_eye_right_corner": {"y": 31.962167, "x": 53.588972}, "mouth_upper_lip_right_contour1": {"y": 35.085, "x": 50.688851}, "mouth_upper_lip_right_contour2": {"y": 35.196333, "x": 51.443948}, "mouth_upper_lip_right_contour3": {"y": 35.369167, "x": 51.136624}, "left_eye_left_corner": {"y": 32.020333, "x": 47.08919}, "mouth_right_corner": {"y": 35.484, "x": 52.207992}, "mouth_lower_lip_right_contour1": {"y": 35.678167, "x": 51.254602}, "contour_right8": {"y": 37.480167, "x": 52.748565}, "left_eyebrow_right_corner": {"y": 31.0045, "x": 49.30912}, "right_eye_center": {"y": 31.928167, "x": 52.658886}, "left_eye_upper_right_quarter": {"y": 31.8415, "x": 48.587939}, "mouth_upper_lip_top": {"y": 35.141167, "x": 50.135585}, "nose_left": {"y": 33.978167, "x": 48.812242}, "left_eye_upper_left_quarter": {"y": 31.815667, "x": 47.616655}, "left_eye_center": {"y": 31.979, "x": 48.096055}, "left_eye_lower_right_quarter": {"y": 32.137833, "x": 48.543411}, "right_eyebrow_left_corner": {"y": 31.132, "x": 51.566087}, "right_eye_left_corner": {"y": 32.053667, "x": 51.755017}, "mouth_lower_lip_top": {"y": 35.804167, "x": 50.266047}, "right_eyebrow_right_corner": {"y": 31.080167, "x": 54.5382}, "mouth_lower_lip_left_contour1": {"y": 35.758167, "x": 49.313281}, "left_eye_pupil": {"y": 31.986833, "x": 48.08357}, "mouth_left_corner": {"y": 35.397667, "x": 48.304544}, "right_eyebrow_upper_left_quarter": {"y": 30.719, "x": 52.364254}, "right_eyebrow_upper_right_quarter": {"y": 30.631, "x": 53.91419}, "right_eye_lower_left_quarter": {"y": 32.113167, "x": 52.059844}, "nose_tip": {"y": 33.703333, "x": 50.218607}, "right_eye_upper_left_quarter": {"y": 31.734, "x": 52.257929}, "left_eyebrow_upper_middle": {"y": 30.458167, "x": 47.880699}, "mouth_lower_lip_right_contour2": {"y": 35.900167, "x": 51.742949}, "mouth_lower_lip_left_contour3": {"y": 36.313333, "x": 49.43542}, "nose_contour_left2": {"y": 33.25, "x": 49.240872}, "nose_contour_left3": {"y": 34.276667, "x": 49.547988}, "nose_contour_right1": {"y": 32.030667, "x": 50.905871}, "nose_contour_right2": {"y": 33.255, "x": 51.369666}, "mouth_lower_lip_left_contour2": {"y": 35.914667, "x": 48.789978}, "right_eyebrow_upper_middle": {"y": 30.6085, "x": 52.991386}, "left_eyebrow_lower_right_quarter": {"y": 30.965167, "x": 48.558185}, "left_eye_top": {"y": 31.760833, "x": 48.132259}, "left_eye_right_corner": {"y": 32.092167, "x": 49.022603}, "left_eyebrow_upper_right_quarter": {"y": 30.562833, "x": 48.599175}, "right_eye_pupil": {"y": 31.940167, "x": 52.52343}, "mouth_upper_lip_bottom": {"y": 35.404833, "x": 50.194262}}, "face_id": "643c146ffdc3cb2b8b7a79b8de09e5e6"}], "session_id": "010366a510094b98af7117dcc7988add"}]';
+   	var json_obj = JSON.parse(json_str);
+   	var landmark = json_obj[0].result[0].landmark;
+    var pen = new jsPen(col, 5);
+    var contour_left_pts = new Array(9);
+    var contour_right_pts = new Array(9);
+    var mouth_lower_lip_left_contour_pts = new Array(3);
+    var mouth_lower_lip_right_contour_pts = new Array(3);
+    var mouth_upper_lip_left_contour_pts = new Array(3);
+    var mouth_upper_lip_right_contour_pts = new Array(3);
+    var nose_contour_left_pts = new Array(3);
+    var nose_contour_right_pts = new Array(3);
+    for(var i in landmark){
+    	match_res = i.match(/((^[a-zA-Z_]+)(\d$))|(^[a-zA-Z_]+$)/);
+    	if (match_res[3]) {
+    		if(match_res[2] == 'contour_left') {
+    			contour_left_pts[parseInt(match_res[3]) - 1] = new jsPoint(landmark[i].x * 15, landmark[i].y * 15);
+    		} else if(match_res[2] == 'contour_right') {
+    			contour_right_pts[parseInt(match_res[3]) - 1] = new jsPoint(landmark[i].x * 15, landmark[i].y * 15);
+    		} else if(match_res[2] == 'mouth_lower_lip_left_contour') {
+    			mouth_lower_lip_left_contour_pts[parseInt(match_res[3]) - 1] = new jsPoint(landmark[i].x * 15, landmark[i].y * 15);
+    		} else if(match_res[2] == 'mouth_lower_lip_right_contour') {
+    			mouth_lower_lip_right_contour_pts[parseInt(match_res[3]) - 1] = new jsPoint(landmark[i].x * 15, landmark[i].y * 15);
+    		} else if(match_res[2] == 'mouth_upper_lip_left_contour') {
+    			mouth_upper_lip_left_contour_pts[parseInt(match_res[3]) - 1] = new jsPoint(landmark[i].x * 15, landmark[i].y * 15);
+    		} else if(match_res[2] == 'mouth_upper_lip_right_contour') {
+    			mouth_upper_lip_right_contour_pts[parseInt(match_res[3]) - 1] = new jsPoint(landmark[i].x * 15, landmark[i].y * 15);
+    		} else if(match_res[2] == 'nose_contour_left') {
+    			nose_contour_left_pts[parseInt(match_res[3]) - 1] = new jsPoint(landmark[i].x * 15, landmark[i].y * 15);
+    		} else if(match_res[2] == 'nose_contour_right') {
+    			nose_contour_right_pts[parseInt(match_res[3]) - 1] = new jsPoint(landmark[i].x * 15, landmark[i].y * 15);
+    		}
+    	} else {
+    		var point = new jsPoint(landmark[i].x * 15, landmark[i].y * 15);
+    		gr.fillCircle(col, point, 2);
+    	}
+    }
+
+    for(var i = 0; i < contour_left_pts.length - 1; i++) {
+    	gr.drawLine(pen, contour_left_pts[i], contour_left_pts[i + 1]);
+    }
+    for(var i = 0; i < contour_right_pts.length - 1; i++) {
+    	gr.drawLine(pen, contour_right_pts[i], contour_right_pts[i + 1]);
+    }
+    for(var i = 0; i < mouth_lower_lip_left_contour_pts.length - 1; i++) {
+    	gr.drawLine(pen, mouth_lower_lip_left_contour_pts[i], mouth_lower_lip_left_contour_pts[i + 1]);
+    }
+    for(var i = 0; i < mouth_lower_lip_right_contour_pts.length - 1; i++) {
+    	gr.drawLine(pen, mouth_lower_lip_right_contour_pts[i], mouth_lower_lip_right_contour_pts[i + 1]);
+    }
+    for(var i = 0; i < mouth_upper_lip_left_contour_pts.length - 1; i++) {
+    	gr.drawLine(pen, mouth_upper_lip_left_contour_pts[i], mouth_upper_lip_left_contour_pts[i + 1]);
+    }
+    for(var i = 0; i < mouth_upper_lip_right_contour_pts.length - 1; i++) {
+    	gr.drawLine(pen, mouth_upper_lip_right_contour_pts[i], mouth_upper_lip_right_contour_pts[i + 1]);
+    }
+    for(var i = 0; i < nose_contour_left_pts.length - 1; i++) {
+    	gr.drawLine(pen, nose_contour_left_pts[i], nose_contour_left_pts[i + 1]);
+    }
+    for(var i = 0; i < nose_contour_right_pts.length - 1; i++) {
+    	gr.drawLine(pen, nose_contour_right_pts[i], nose_contour_right_pts[i + 1]);
+    }
+    faceShape(contour_left_pts, contour_right_pts);
+	function faceShape(left_face_pts, right_face_pts){
+		var distances = new Array(9);
+		for(var i = 0; i < distances.length; i++) {
+			distances[i] = Math.sqrt(Math.pow(Math.abs(left_face_pts[i].x - right_face_pts[i].x), 2) + Math.pow(Math.abs(left_face_pts[i].y - right_face_pts[i].y), 2))
+			if(i)
+				console.log("absolute: " + distances[i]/distances[0] + "   relative: " + distances[i]/distances[i-1]);
+		}
+	}
+</script>
+<link type="text/css" href="common.css" rel="stylesheet">

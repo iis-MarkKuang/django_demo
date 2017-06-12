@@ -1,0 +1,32 @@
+{% if images %}
+	<ul>
+	{% for image in images %}
+		<!-- <li><a href="/gallery/image/{{ image.insta_pic_info_id }}/">{{ image.username }}</a></li> -->
+		{% load static %}
+		{% with image.number as image_static %}
+			<li><a href="/gallery/imgs/{{ image.id }}/"><img src="{% static image_static %}" width="120px", height="120px"/></a></li>
+		{% endwith %}
+	{% endfor %}
+	</ul>
+	<div class="pagination">
+		<span class="step-links">
+			{% if images.has_previous %}
+    			<a href="?page={{ images.previous_page_number }}{% for key,value in request.GET.items %}{% ifnotequal key 'page' %}&{{ key }}={{ value }}{% endifnotequal %}{% endfor %}">next</a>
+			{% endif %}
+
+			<span class="current">
+				Page {{ images.number }} of {{ images.paginator.num_pages }}.
+			</span>
+
+			{% if images.has_next %}
+				<a href="?page={{ images.next_page_number }}{% for key,value in request.GET.items %}{% ifnotequal key 'page' %}&{{ key }}={{ value }}{% endifnotequal %}{% endfor %}">next</a>
+			{% endif %}
+		</span>
+	</div>
+
+{% else %}
+	<p>No images available.</p>
+{% endif %}
+
+{% load static %}
+<link type="text/css" href="{% static 'common.css' %}" rel="stylesheet">

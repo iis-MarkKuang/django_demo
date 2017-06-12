@@ -1,0 +1,228 @@
+{
+  "tags": [
+    {
+      "input_type": 4,
+      "name": "综合",
+      "sub_tag_groups": [
+        {
+          "group_id": "10001__1",
+          "name": "人物",
+          "options": [
+            {
+              "id": "10001__1__1",
+              "query": "face_info__exists=True",
+              "meaning": "all images with people",
+              "label": "人物"
+            },
+            {
+              "id": "10001__1__2",
+              "query": "smiling_info__in=['1']",
+              "meaning": "smiling",
+              "label": "笑"
+            },
+            {
+              "id": "10001__1__3",
+              "query": "smiling_info__in=['2']",
+              "meaning": "not smiling",
+              "label": "不笑"
+            },
+            {
+              "id": "10001__1__4",
+              "query": "age_info__in=['1']",
+              "meaning": "adolescent",
+              "label": "少年"
+            },
+            {
+              "id": "10001__1__5",
+              "query": "age_info__in=['2']",
+              "meaning": "youth",
+              "label": "青年"
+            },
+            {
+              "id": "10001__1__6",
+              "query": "age_info__in=['3']",
+              "meaning": "middle-age",
+              "label": "中年"
+            },
+            {
+              "id": "10001__1__7",
+              "query": "age_info__in=['4']",
+              "meaning": "elderly",
+              "label": "老年"
+            },
+            {
+              "id": "10001__1__8",
+              "query": "race_info__in=['1']",
+              "meaning": "asian",
+              "label": "黄种人"
+            },
+            {
+              "id": "10001__1__9",
+              "query": "race_info__in=['2']",
+              "meaning": "race white",
+              "label": "白种人"
+            },
+            {
+              "id": "10001__1__10",
+              "query": "race_info__in=['3']",
+              "meaning": "race black",
+              "label": "黑人"
+            },
+            {
+              "id": "10001__1__11",
+              "query": "gender_info__in=['1']",
+              "meaning": "gender male",
+              "label": "男"
+            },
+            {
+              "id": "10001__1__12",
+              "query": "gender_info__in=['2']",
+              "meaning": "gender female",
+              "label": "女"
+            }
+          ]
+        },
+        {
+          "group_id": "10001__2",
+          "name": "眼镜",
+          "options": [
+            {
+              "id": "10001__2__1",
+              "query": "glass_info__nin=['3']",
+              "meaning": "all images with people wearing glasses",
+              "label": "眼镜"
+            },
+            {
+              "id": "10001__2__2",
+              "query": "tags__in=['sunglasses', 'sunglass', 'polarized']",
+              "meaning": "sunglasses",
+              "label": "太阳镜"
+            },
+            {
+              "id": "10001__2__3",
+              "query": "tags__in=['eyeglasses', 'optical', 'shortsighted']",
+              "meaning": "opticalglasses",
+              "label": "光学镜"
+            },
+            {
+              "id": "10001__2__4",
+              "query": "tags__in=['rayban','raybans']",
+              "meaning": "rayban",
+              "label": "雷朋"
+            },
+            {
+              "id": "10001__2__5",
+              "query": "tags__in=['sheet','board','wooden','handmade']",
+              "meaning": "sheet",
+              "label": "板材"
+            },
+            {
+              "id": "10001__2__6",
+              "query": "tags__in=['tortoiseshell','turtle','tortoise','hawsbill','acetate']",
+              "meaning": "tortoiseshell",
+              "label": "玳瑁"
+            }
+          ]
+        },
+        {
+          "group_id": "10001__3",
+          "name": "场景",
+          "options": [
+            {
+              "id": "10001__3__1",
+              "query": "tags__in=['dating', 'travel', 'indoor', 'sport', 'work']",
+              "meaning": "all_scenes",
+              "label": "场景"
+            },
+            {
+              "id": "10001__3__2",
+              "query": "tags__in=['dating', 'date', 'party', 'together']",
+              "meaning": "dating",
+              "label": "约会"
+            },
+            {
+              "id": "10001__3__3",
+              "query": "tags__in=['travel', 'trip', 'journey', 'tour']",
+              "meaning": "travel",
+              "label": "旅行"
+            },
+            {
+              "id": "10001__3__4",
+              "query": "tags__in=['indoor', 'indoors', 'house', 'family']",
+              "meaning": "indoor",
+              "label": "居家"
+            },
+            {
+              "id": "10001__3__5",
+              "query": "tags__in=['sport', 'sports', 'exercise', 'workout', 'fitness']",
+              "meaning": "sport",
+              "label": "运动"
+            }
+
+          ]
+        }
+      ]
+    },
+    {
+      "input_type": 4,
+      "name": "风格",
+      "options": [
+        {
+          "id": "10002__1",
+          "query": "active=1",
+          "meaning": "all_styles",
+          "label": "全部"
+        },
+        {
+          "id": "10002__2",
+          "query": "tags__in=['nostalgic', 'memories', 'retro']",
+          "meaning": "nostalgic",
+          "label": "复古"
+        },
+        {
+          "id": "10002__3",
+          "query": "tags__in=['fashion', 'vogue', 'fashionable', 'luxury', 'deluxe']",
+          "meaning": "fashion",
+          "label": "时尚"
+        },
+        {
+          "id": "10002__4",
+          "query": "tags__in=['vintage', 'brand']",
+          "meaning": "vintage",
+          "label": "欧美品牌"
+        }
+      ]
+    },
+    {
+      "input_type": 4,
+      "name": "尺寸",
+      "attribute_group": "1000",
+      "options": [
+        {
+          "id": "10003__1",
+          "query": "active=1",
+          "meaning": "all sizes",
+          "label": "全部"
+        },
+        {
+          "id": "10003__2",
+          "query": "size_result='1'",
+          "meaning": "small images",
+          "label": "小"
+        },
+        {
+          "id": "10003__3",
+          "query": "size_result='2'",
+          "meaning": "medium images",
+          "label": "中"
+        },
+        {
+          "id": "10003__4",
+          "query": "size_result='3'",
+          "meaning": "large images",
+          "label": "大"
+        }
+      ]
+    }
+  ]
+}

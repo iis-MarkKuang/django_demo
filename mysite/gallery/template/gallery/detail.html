@@ -1,0 +1,57 @@
+{% if image %}
+	<ul>
+		<li>username: {{ image.username }}</li>
+		{% load static %}
+		{% with image.number as image_static %}
+			<li><a href="{% static image_static %}"><img width="300px" height="300px" src="{% static image_static %}"/></a></li>
+		{% endwith %}
+		<li><pre>type: {{ image.pic_type }}</pre></li>
+		<li><pre>likes(instagram): {{ image.instagram_likes }}</pre></li>
+		<li><pre>likes(users): {{ image.likes }}</pre></li>
+		<li><pre>dislikes(users): {{ image.dislikes }}</pre></li>
+		<li><pre>tags: {{ image.tags }}</pre></li>
+		<li><pre>check_times: {{ image.enlarge_times }}</pre></li>
+		<!--li><pre id="comments">comments: {{ image.comments }}</pre></li-->
+		<li>
+			{% for comment in image.comments %}
+				<div>
+					<p>comment text: {{ comment.text }}</p>
+					<p>created at: {{ comment.created_at }}</p>
+					<p>user: {{ comment.user.username }}</p>
+				</div>
+			{% endfor %}
+		</li>
+		<li><pre>create_time: {{ image.create_time }}</pre></li>
+		<li><pre>height_width_info: {{ image.size_info }}</pre></li>
+		<li><pre>size_info: {{ image.bytesize_info }}</pre></li>
+		<li>
+			{% for face_id in image.face_ids %}
+				<a href = "/gallery/imgs/{{ image.id }}/face_id/{{ face_id }}/landmark_info">
+					landmark info of face_id:{{ face_id }}
+				</a>
+				<br>
+				<a href = "/gallery/imgs/{{ image.id }}/face_id/{{ face_id }}/detect_info">
+					detect info of face_id:{{ face_id }}
+				</a>
+				<br>
+			{% endfor%}
+		</li>
+		<li>
+			<input type="button" value="Delete Image" onclick="window.location.href='/gallery/imgs/{{ image.id }}/delete/'"/>
+		</li>		
+	</ul>
+
+	
+
+{% load static %}
+	<script type="text/javascript">
+		var comments_data = {
+			"comments": {{ image.comments|safe }}
+		};
+		var facepp_info_data = {
+			"facepp_info": {{ image.facepp_info|safe }}
+		};
+		document.getElementById('comments').innerHTML = JSON.stringify(comments_data, undefined, 2);
+		document.getElementById('facepp_info').innerHTML = JSON.stringify(facepp_info_data, undefined, 2);
+	</script>
+{% endif %}

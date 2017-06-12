@@ -1,0 +1,30 @@
+{
+  "facepp": {
+    "facepp_api_key": "8d52a5fa8cc6af84627fb5c185c3a1dd",
+    "facepp_api_secret": "fB5iKdovLCCAYsnEkPj9Y93Y2L5jx_t5"
+  },
+  "redis": {
+    "redis_server": "127.0.0.1:6379",
+    "redis_password": "",
+    "resque_queue_name": "Spam"
+  },
+  "logger": {
+    "logger_name": "pyres.worker",
+    "logging_file_handler": "/tmp/es_trace.log"
+  },
+  "payload": {
+    "offset": 30000,
+    "upper_limit": 50000,
+    "payload": 500
+  },
+  "mysql": {
+    "mysql_host": "localhost",
+    "mysql_usr": "root",
+    "mysql_pwd": "passw0rd",
+    "mysql_db": "test_db"
+  },
+  "mongodb": {
+  	"mongodb_host": "localhost",
+  	"mongodb_port": 27017
+  }
+}
