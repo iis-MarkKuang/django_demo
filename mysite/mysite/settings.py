@@ -91,7 +91,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': ('instagram_test'),
         'USER': ('root'),
-        'PASSWORD': ('51642323'),
+        'PASSWORD': ('1234'),
         'HOST': ('127.0.0.1'),
         'POST': 3306,
     },
