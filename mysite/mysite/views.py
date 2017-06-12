@@ -57,7 +57,7 @@ def login(request):
 			return render_to_response('login.html', RequestContext(request, {'form': form, 'logo_img_name': settings.LOGO_IMG_NAME}))
 	else:
 		form = LoginForm()
-		return render_to_response('login.html', RequestContext(request, {'form': form, 'logo_img_name': settings.LOGO_IMG_NAME}))
+		return render_to_response('login.html', {'form': form, 'logo_img_name': settings.LOGO_IMG_NAME})
 	
 def logout(request):
 	if not request.user.is_authenticated():
