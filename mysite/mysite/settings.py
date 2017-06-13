@@ -158,8 +158,8 @@ STATICFILES_DIRS = (
 
 IMAGES_DIR = '/instagram_images/'
 
-EXTERNAL_INDEX_URL = 'http://192.168.31.237:8000/static/index.html'
-INTERNAL_LOGIN_URL = 'http://192.168.31.237:8000/accounts/login/'
+EXTERNAL_INDEX_URL = 'http://127.0.0.1:8000/static/index.html'
+INTERNAL_LOGIN_URL = 'http://127.0.0.1:8000/accounts/login/'
 
 IMAGES_PER_PAGE = 20
 APPEND_SLASH = False
