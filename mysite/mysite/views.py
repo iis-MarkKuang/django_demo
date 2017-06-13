@@ -37,7 +37,7 @@ def login(request):
 						error = settings.ERROR_PHONE_NOT_EXIST
 						
 				if error:
-					return render_to_response('login.html', RequestContext(request, {'error': error, 'form': form, 'logo_img_name': settings.LOGO_IMG_NAME}))
+					return render_to_response('login.html', {'error': error, 'form': form, 'logo_img_name': settings.LOGO_IMG_NAME})
 				else:
 					username = User.objects.filter(id=user_profile_result[0].user_id)[0].username
 			user = auth.authenticate(username = username, password = password)
@@ -46,19 +46,19 @@ def login(request):
 				if request.GET.has_key('next'):
 					return HttpResponseRedirect(request.GET['next'])
 				return HttpResponseRedirect(settings.EXTERNAL_INDEX_URL)
-			
+
 			else:
 				# error = err_msg(form, [{'msg': 'password is wrong', 'password': password}])
 				error = settings.ERROR_WRONG_PASSWORD
 				# return HttpResponse(json.dumps(error), content_type='application/json')
-				return render_to_response('login.html', RequestContext(request, {'error': error, 'form': form, 'logo_img_name': settings.LOGO_IMG_NAME}))
+				return render_to_response('login.html', {'error': error, 'form': form, 'logo_img_name': settings.LOGO_IMG_NAME})
 
 		else:
-			return render_to_response('login.html', RequestContext(request, {'form': form, 'logo_img_name': settings.LOGO_IMG_NAME}))
+			return render_to_response('login.html', {'form': form, 'logo_img_name': settings.LOGO_IMG_NAME})
 	else:
 		form = LoginForm()
 		return render_to_response('login.html', {'form': form, 'logo_img_name': settings.LOGO_IMG_NAME})
-	
+
 def logout(request):
 	if not request.user.is_authenticated():
 		# error = 'unauthorized'
@@ -95,24 +95,24 @@ def register(request):
 			if not form.is_valid():
 				error = settings.ERROR_FORM_INVALID
 				# return HttpResponse(json.dumps(error), content_type='application/json')
-				return render_to_response('register.html', RequestContext(request, {'error': error, 'form': form, 'logo_img_name': settings.LOGO_IMG_NAME}))
+				return render_to_response('register.html', {'error': error, 'form': form, 'logo_img_name': settings.LOGO_IMG_NAME})
 
 			elif password != password_repeat:
 				error = settings.ERROR_PASSWORD_NOT_IDENTICAL
 				# return HttpResponse(json.dumps(error), content_type='application/json')
-				return render_to_response('register.html', RequestContext(request, {'error': error, 'form': form, 'logo_img_name': settings.LOGO_IMG_NAME}))
+				return render_to_response('register.html', {'error': error, 'form': form, 'logo_img_name': settings.LOGO_IMG_NAME})
 
 			username_filter_result = User.objects.filter(username=username)
 			if len(username_filter_result) > 0:
 				error = settings.ERROR_USERNAME_TAKEN
 				# return HttpResponse(json.dumps(error), content_type='application/json')
-				return render_to_response('register.html', RequestContext(request, {'error': error, 'form': form, 'logo_img_name': settings.LOGO_IMG_NAME}))
+				return render_to_response('register.html', {'error': error, 'form': form, 'logo_img_name': settings.LOGO_IMG_NAME})
 
 			phone_filter_result = UserProfile.objects.filter(phone=phone)
 			if len(phone_filter_result) > 0:
 				error = settings.ERROR_PHONE_TAKEN
-				return render_to_response('register.html', RequestContext(request, {'error': error, 'form': form, 'logo_img_name': settings.LOGO_IMG_NAME}))
-			
+				return render_to_response('register.html', {'error': error, 'form': form, 'logo_img_name': settings.LOGO_IMG_NAME})
+
 			user = User()
 			user.username = username
 			user.set_password(password)
@@ -128,16 +128,16 @@ def register(request):
 				auth.login(request, new_user)
 
 				return HttpResponseRedirect(settings.EXTERNAL_INDEX_URL)
-				
+
 		else:
 			form = RegisterForm()
 	except Exception,e:
 		# error = err_msg({}, [{'msg': str(e)}])
-		return render_to_response('register.html', RequestContext(request, {'error': str(e), 'form': form, 'logo_img_name': settings.LOGO_IMG_NAME}))
+		return render_to_response('register.html', {'error': str(e), 'form': form, 'logo_img_name': settings.LOGO_IMG_NAME})
 
 		# return HttpResponse(json.dumps(error), content_type='application/json')
 
-	return render_to_response('register.html', RequestContext(request, {'curtime': current_time, 'form': form, 'logo_img_name': settings.LOGO_IMG_NAME}))
+	return render_to_response('register.html', {'curtime': current_time, 'form': form, 'logo_img_name': settings.LOGO_IMG_NAME})
 
 def profile(request):
 	if not request.user.is_authenticated():
