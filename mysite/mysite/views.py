@@ -14,6 +14,7 @@ import time, json, re
 
 @csrf_exempt
 def login(request):
+	print settings.STATIC_ROOT
 	if request.user.is_authenticated():
 		return HttpResponseRedirect(settings.EXTERNAL_INDEX_URL)
 	current_time = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime())
